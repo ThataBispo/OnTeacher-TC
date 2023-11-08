@@ -1,4 +1,6 @@
 import React, { FormEvent, useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 import { Input } from "../../components/Input";
 import { PageHeader } from "../../components/PageHeader";
 import warningIcon from "../../assets/images/icons/warning.svg";
@@ -9,6 +11,8 @@ import { api } from "../../services/api";
 import "./styles.css";
 
 export function TeacherForm() {
+  const navigate = useNavigate();
+
   const [name, setName] = useState("");
   const [avatar, setAvatar] = useState("");
   const [whatsapp, setWhatsapp] = useState("");
@@ -55,6 +59,8 @@ export function TeacherForm() {
       })
       .then(() => {
         alert("Cadastro Realizado com Sucesso!");
+
+        navigate("/");
       })
       .catch(() => {
         alert("Erro no Cadastro!");
