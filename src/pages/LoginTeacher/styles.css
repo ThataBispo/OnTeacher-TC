@@ -3,6 +3,10 @@
   padding: 0;
   box-sizing: border-box;
 }
+body,
+html {
+  font-family: 700 1.6rem Archivo;
+}
 
 .login-form {
   width: 100%;

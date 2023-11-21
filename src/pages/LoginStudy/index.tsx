@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logoImg from "../../assets/images/logo.png";
 
 import { Layout } from "../../components/Layout";
@@ -9,6 +9,17 @@ import "./styles.css";
 export function LoginStudy() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+
+  const handleLogin = () => {
+    const isAuthenticated = true;
+
+    if (isAuthenticated) {
+      navigate("/dashboard");
+    } else {
+      alert("Login falhou. Verifique suas credenciais.");
+    }
+  };
   return (
     <Layout>
       <form className="login-form">
@@ -38,12 +49,14 @@ export function LoginStudy() {
         </div>
 
         <div className="container-login-form-btn"></div>
-        <button className="login-form-btn">Acessar</button>
+        <button className="login-form-btn" onClick={handleLogin}>
+          Acessar
+        </button>
 
         <div className="text-center">
           <span className="txt1">Não possui conta?</span>
 
-          <Link className="txt2" to="#">
+          <Link className="txt2" to="/register">
             Criar conta.
           </Link>
         </div>
