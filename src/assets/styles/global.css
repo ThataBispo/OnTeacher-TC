@@ -1,6 +1,4 @@
 :root {
-  font-size: 60%;
-
   --color-background: #f0f0f7;
   --color-primary-light: #000000;
   --color-primary-lighter: #472c77;
@@ -21,6 +19,8 @@
   --color-box-footer: #f5f5f5;
   --color-text-in: #5d38a2;
   --color-text-out: #000;
+
+  font-size: 60%;
 }
 
 * {
@@ -33,6 +33,7 @@ html,
 body,
 #root {
   height: 100vh;
+  font-family: "Poppins", sans-serif;
 }
 
 body {
@@ -51,10 +52,11 @@ button,
 textarea {
   font: 500 1.6rem Poppins;
   color: var(--color-text-base);
+  outline: 0;
 }
 
 .container {
-  width: 90vv;
+  width: 90vh;
   max-width: 700px;
 }
 

@@ -1,10 +1,10 @@
-import React, { FormEvent, useState } from "react";
+import { FormEvent, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { Input } from "../../components/Input";
+import Input from "../../components/Input";
 import { PageHeader } from "../../components/PageHeader";
 import warningIcon from "../../assets/images/icons/warning.svg";
-import { Textarea } from "../../components/Textarea";
+import { Textarea } from "../../components/TextArea";
 import { Select } from "../../components/Select";
 import { api } from "../../services/api";
 
@@ -47,6 +47,7 @@ export function TeacherForm() {
   function handleCreateClass(e: FormEvent) {
     e.preventDefault();
 
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
     api
       .post("classes", {
         name,
@@ -121,6 +122,7 @@ export function TeacherForm() {
               label="Matéria"
               value={subject}
               onChange={(e) => {
+                // eslint-disable-next-line @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-unsafe-member-access
                 setSubject(e.target.value);
               }}
               options={[
@@ -161,6 +163,7 @@ export function TeacherForm() {
                     label="Dia da semana"
                     value={scheduleItem.week_day}
                     onChange={(e) =>
+                      // eslint-disable-next-line @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-unsafe-member-access
                       setScheduleItemValue(index, "week_day", e.target.value)
                     }
                     options={[

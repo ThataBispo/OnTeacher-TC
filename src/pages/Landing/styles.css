@@ -2,47 +2,126 @@
   width: 100vw;
   height: 100vh;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
   color: var(--color-text-in-primary);
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+
+#page-landing .header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
   background: var(--color-primary);
 }
 
-.logo-container img {
-  height: 10rem;
+#page-landing .header .profile {
+  display: flex;
+  align-items: center;
 }
 
-.hero-image {
-  margin-top: 80px;
-  width: 90%;
+#page-landing .header button {
+  background: var(--color-primary-dark);
+  border: 0;
+  outline: 0;
+  height: 5rem;
+  width: 5rem;
+  border-radius: 1rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s;
+}
+
+#page-landing .header button:hover {
+  opacity: 0.6;
+}
+
+#page-landing .header button > img {
+  height: 2rem;
+  width: 2rem;
+  margin-left: 0.8rem;
+}
+
+#page-landing .header img {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 2.5rem;
+  margin-right: 1rem;
+  cursor: pointer;
+}
+
+#page-landing .header strong {
+  color: #d4c2ff;
+  cursor: pointer;
+}
+
+#banner {
+  background: var(--color-primary);
+  padding: 3rem 0;
+  width: 100%;
 }
 
 .logo-container {
   text-align: center;
-  margin-bottom: 3.2rem;
+}
+
+.logo-container img {
+  height: 5rem;
 }
 
 .logo-container h2 {
   font-weight: 500;
-  font-size: 2.4rem;
-  line-height: 4.6rem;
-  margin-top: 0.8rem;
+  font-size: 1.2rem;
+  line-height: 2.3rem;
 }
 
-.buttons-container {
+.hero-image {
+  height: 15rem;
+  width: 100%;
+}
+
+.content {
   display: flex;
+  align-items: center;
   justify-content: center;
-  margin: 3.2rem 0;
+  flex-direction: column;
+
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-secundary-dark);
 }
 
-.buttons-container a {
-  width: 30rem;
-  height: 10.4rem;
-  border-radius: 0.8rem;
-  margin-right: 1.6rem;
-  font: 700 2rem Archivo;
+.content .welcome-connections-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 3rem 4rem;
+  margin-bottom: 2rem;
+  color: #6a6180;
+}
+
+.content .welcome-container {
+  display: flex;
+  align-items: initial;
+  flex-direction: column;
+}
+
+.content .buttons-container {
+  display: flex;
+}
+
+.content a {
+  width: 15rem;
+  height: 5.2rem;
+  border-radius: 0.4rem;
+  font: 700 1rem Archivo;
 
   display: flex;
   align-items: center;
@@ -50,95 +129,104 @@
 
   text-decoration: none;
   color: var(--color-button-text);
-
   transition: background-color 0.2s;
 }
 
-.buttons-container a:first-child {
-  margin-right: 1.6rem;
+.content a:first-child {
+  margin-right: 0.8rem;
 }
 
-.buttons-container a img {
-  width: 4rem;
-}
-
-.buttons-container a.study {
+.content a.study {
   background: var(--color-primary-lighter);
 }
 
-.buttons-container a.give-classes {
+.content a.teach {
   background: var(--color-secundary);
 }
 
-.buttons-container a.study:hover {
+.content a.study:hover {
   background: var(--color-primary-light);
 }
 
-.buttons-container a.give-classes:hover {
+.content a.teach:hover {
   background: var(--color-secundary-dark);
 }
 
-.buttons-container a img {
-  margin-right: 2.4rem;
+.content a img {
+  margin-right: 1.2rem;
 }
 
-.total {
-  font-size: 2rem;
+.total-connections {
+  font-size: 1rem;
 
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.total img {
-  margin-left: -3rem;
-  width: 8.6rem;
+.total-connections img {
+  margin-left: 0.4rem;
 }
 
 @media (min-width: 1100px) {
-  #page-landing-content {
-    max-width: 1100px;
+  #page-landing .header {
+    padding: 2.5rem 14rem;
+  }
 
-    display: grid;
-    grid-template-rows: 350px 1fr;
-    grid-template-columns: 2fr 1fr 1 fr;
-    grid-template-areas:
-      "logo hero hero"
-      "buttons buttons total";
+  #page-landing .header button {
+    width: 4rem;
+    height: 4rem;
+  }
+
+  #banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 15rem;
+    padding-bottom: 3rem;
   }
 
   .logo-container {
-    grid-area: logo;
-    align-self: center;
     text-align: left;
-    margin: 0;
-  }
-
-  .logo-container h2 {
-    text-align: initial;
-    font-size: 3.6rem;
   }
 
   .logo-container img {
-    height: 100%;
+    height: 10rem;
   }
 
-  .hero-image {
-    grid-area: hero;
-    justify-self: end;
+  .logo-container h2 {
+    font-size: 3rem;
+    line-height: 4rem;
   }
 
-  .buttons-container {
-    grid-area: buttons;
-    justify-content: flex-start;
+  #banner .hero-image {
+    height: 30rem;
+    width: auto;
   }
 
-  .buttons-container a {
-    font-size: 2.4rem;
+  .content {
+    flex-direction: row;
+    align-items: center;
+    padding: 5rem 20rem;
   }
 
-  .total {
-    grid-area: total;
-    justify-self: end;
+  .content .welcome-connections-container {
+    padding: 0 3.5rem;
+  }
+
+  .content a {
+    width: 20rem;
+    height: 6.5rem;
+    border-radius: 0.8rem;
+    font: 700 1.6rem Archivo;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-decoration: none;
+    color: var(--color-button-text);
+    transition: background-color 0.2s;
   }
 }

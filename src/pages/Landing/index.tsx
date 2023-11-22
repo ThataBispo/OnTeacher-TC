@@ -1,54 +1,71 @@
-import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { api } from "../../services/api";
+import { useState } from "react";
 
-import logoImg from "../../assets/images/logo.png";
-import landingImg from "../../assets/images/landing.svg";
+import logo from "../../assets/images/logo.png";
+import landing from "../../assets/images/landing.svg";
 import studyIcon from "../../assets/images/icons/study.svg";
-import giveClassesIcon from "../../assets/images/icons/give-classes.svg";
-import purpleHeartIcon from "../../assets/images/icons/purple-heart.png";
+import teachIcon from "../../assets/images/icons/give-classes.svg";
+import purpleHeart from "../../assets/images/icons/purple-heart.svg";
+import quitIcon from "../../assets/images/icons/Sair.png";
+import defaultAvatar from "../../assets/images/default-avatar.png";
 
 import "./styles.css";
+import { Link, useNavigate } from "react-router-dom";
 
-function Landing() {
-  const [totalConnections, setTotal] = useState(0);
+export function Landing() {
+  const [totalConnections, setTotalConnections] = useState(0);
+  const [isTeacher, setIsTeacher] = useState(false);
 
-  useEffect(() => {
-    api.get("connections").then((response) => {
-      const { total } = response.data;
+  const navigate = useNavigate();
 
-      setTotal(total);
-    });
-  }, []);
+  function handleNavigation() {
+    navigate("/");
+  }
 
   return (
     <div id="page-landing">
-      <div id="page-landing-content" className="container">
+      <div className="header">
+        <div className="profile">
+          <img src="https://avatars.githubusercontent.com/u/112427489?v=4" />
+          <strong>Thauane Bispo</strong>
+        </div>
+        <button className="logoff-button" type="button">
+          <img src={quitIcon} alt="Sair" onClick={handleNavigation} />
+        </button>
+      </div>
+
+      <div id="banner">
         <div className="logo-container">
-          <img src={logoImg} alt="OnTeacher" />
-          <h2>Encontre seu professor aqui.</h2>
+          <img src={logo} alt="Proffy" />
+          <h2>
+            Sua plataforma de <br /> estudos online.
+          </h2>
         </div>
-        <img
-          src={landingImg}
-          alt="Plataforma de busca e divulgação"
-          className="hero-image"
-        />
+
+        <img src={landing} alt="Plataforma de Estudos" className="hero-image" />
+      </div>
+
+      <div className="content">
+        <div className="welcome-connections-container">
+          <div className="welcome-container">
+            <span>Seja bem-vindo.</span>
+            <strong>O que deseja fazer?</strong>
+          </div>
+          <span className="total-connections">
+            Total de {totalConnections} conexões.
+            <img src={purpleHeart} alt="" />
+          </span>
+        </div>
         <div className="buttons-container">
-          <Link to="/study" className="study">
+          <a href="/TeacherList" className="study">
             <img src={studyIcon} alt="Estudar" />
-            Aluno
-          </Link>
+            Estudar
+          </a>
 
-          <Link to="/give-classes" className="give-classes">
-            <img src={giveClassesIcon} alt="Professor" />
-            Professor
+          <Link to="/TeacherForm" className="teach">
+            <img src={teachIcon} alt="" />
+            Dar Aulas
           </Link>
         </div>
-
-        <span className="total">
-          Sua plataforma online. Com um total {totalConnections} conexões.
-          <img src={purpleHeartIcon} alt="Coração" />
-        </span>
       </div>
     </div>
   );

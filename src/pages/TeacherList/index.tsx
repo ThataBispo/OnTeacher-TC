@@ -1,5 +1,7 @@
+/* eslint-disable @typescript-eslint/no-misused-promises */
+/* eslint-disable @typescript-eslint/no-unsafe-argument */
 import { FormEvent, useState } from "react";
-import { Input } from "../../components/Input";
+import Input from "../../components/Input";
 import { PageHeader } from "../../components/PageHeader";
 import { Select } from "../../components/Select";
 import { TeacherItem, Teacher } from "../../components/TeacherItem";
@@ -25,6 +27,7 @@ export function TeacherList() {
       },
     });
 
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
     setTeachers(response.data);
   }
 
@@ -37,6 +40,7 @@ export function TeacherList() {
             label="Matéria"
             value={subject}
             onChange={(e) => {
+              // eslint-disable-next-line @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-unsafe-member-access
               setSubject(e.target.value);
             }}
             options={[
@@ -58,6 +62,7 @@ export function TeacherList() {
             label="Dia da semana"
             value={week_day}
             onChange={(e) => {
+              // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
               setWeek_day(e.target.value);
             }}
             options={[
@@ -72,6 +77,7 @@ export function TeacherList() {
           />
 
           <Input
+            style={{ background: "#FFF" }}
             type="time"
             name="time"
             label="Hora"
