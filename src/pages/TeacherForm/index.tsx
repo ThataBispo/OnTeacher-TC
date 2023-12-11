@@ -128,14 +128,14 @@ export function TeacherForm() {
               options={[
                 { value: "Artes", label: "Artes" },
                 { value: "Biologia", label: "Biologia" },
-                { value: "Ciências", label: "Ciências" },
-                { value: "Educação Física", label: "Educação Física" },
-                { value: "Física", label: "Física" },
-                { value: "História", label: "História" },
-                { value: "Inglês", label: "Inglês" },
-                { value: "Matemática", label: "Matemática" },
-                { value: "Português", label: "Português" },
-                { value: "Química", label: "Química" },
+                { value: "Ciencias", label: "Ciências" },
+                { value: "Educacao Fisica", label: "Educação Física" },
+                { value: "Fisica", label: "Física" },
+                { value: "Historia", label: "História" },
+                { value: "Ingles", label: "Inglês" },
+                { value: "Matematica", label: "Matemática" },
+                { value: "Portugues", label: "Português" },
+                { value: "Quimica", label: "Química" },
               ]}
             />
             <Input
