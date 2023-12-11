@@ -27,33 +27,32 @@ export function TeacherList() {
       },
     });
 
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
     setTeachers(response.data);
+    console.log(response.data);
   }
 
   return (
     <div id="page-teacher-list" className="container">
       <PageHeader title="Estes são os professores disponíveis.">
-        <form action="" id="search-teachers" onSubmit={searchTeachers}>
+        <form id="search-teachers" onSubmit={searchTeachers}>
           <Select
             name="subject"
             label="Matéria"
             value={subject}
             onChange={(e) => {
-              // eslint-disable-next-line @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-unsafe-member-access
               setSubject(e.target.value);
             }}
             options={[
               { value: "Artes", label: "Artes" },
               { value: "Biologia", label: "Biologia" },
-              { value: "Ciências", label: "Ciências" },
-              { value: "Educação Física", label: "Educação Física" },
-              { value: "Física", label: "Física" },
-              { value: "História", label: "História" },
-              { value: "Inglês", label: "Inglês" },
-              { value: "Matemática", label: "Matemática" },
-              { value: "Português", label: "Português" },
-              { value: "Química", label: "Química" },
+              { value: "Ciencias", label: "Ciências" },
+              { value: "Educacao Fisica", label: "Educação Física" },
+              { value: "Fisica", label: "Física" },
+              { value: "Historia", label: "História" },
+              { value: "Ingles", label: "Inglês" },
+              { value: "Matematica", label: "Matemática" },
+              { value: "Portugues", label: "Português" },
+              { value: "Quimica", label: "Química" },
             ]}
           />
 
@@ -62,7 +61,6 @@ export function TeacherList() {
             label="Dia da semana"
             value={week_day}
             onChange={(e) => {
-              // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
               setWeek_day(e.target.value);
             }}
             options={[
