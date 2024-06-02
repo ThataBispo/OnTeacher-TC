@@ -1,15 +1,16 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import logo from '../../assets/images/logo.svg';
-import backIcon from '../../assets/images/icons/back.svg';
+import React, { ReactNode } from "react";
+import { Link } from "react-router-dom";
+import logo from "../../assets/images/logo.svg";
+import backIcon from "../../assets/images/icons/back.svg";
 
-import './styles.css';
+import "./styles.css";
 
 interface PageHeaderProps {
   title?: string;
   description?: string;
   pageTitle?: string;
   style?: { backgroundImage: string; backgroundRepeat: string };
+  children: ReactNode;
 }
 
 const Header: React.FC<PageHeaderProps> = ({
