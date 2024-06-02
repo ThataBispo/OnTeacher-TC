@@ -4,11 +4,11 @@ import { useNavigate } from "react-router-dom";
 import Input from "../../components/Input";
 import { PageHeader } from "../../components/PageHeader";
 import warningIcon from "../../assets/images/icons/warning.svg";
-import { Textarea } from "../../components/TextArea";
 import { Select } from "../../components/Select";
 import { api } from "../../services/api";
 
 import "./styles.css";
+import { Textarea } from "../../components/Textarea";
 
 export function TeacherForm() {
   const navigate = useNavigate();
