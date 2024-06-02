@@ -1,20 +1,14 @@
-import { useState } from "react";
-
 import logo from "../../assets/images/logo.png";
 import landing from "../../assets/images/landing.svg";
 import studyIcon from "../../assets/images/icons/study.svg";
 import teachIcon from "../../assets/images/icons/give-classes.svg";
 import purpleHeart from "../../assets/images/icons/purple-heart.svg";
 import quitIcon from "../../assets/images/icons/Sair.png";
-import defaultAvatar from "../../assets/images/default-avatar.png";
 
 import "./styles.css";
 import { Link, useNavigate } from "react-router-dom";
 
 export function Landing() {
-  const [totalConnections, setTotalConnections] = useState(0);
-  const [isTeacher, setIsTeacher] = useState(false);
-
   const navigate = useNavigate();
 
   function handleNavigation() {
@@ -51,7 +45,7 @@ export function Landing() {
             <strong>O que deseja fazer?</strong>
           </div>
           <span className="total-connections">
-            Total de {totalConnections} conexões.
+            Total de 0 conexões.
             <img src={purpleHeart} alt="" />
           </span>
         </div>
