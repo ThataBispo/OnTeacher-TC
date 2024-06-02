@@ -1,4 +1,3 @@
-import { useState } from "react";
 import background from "../../assets/images/Background.png";
 import backIcon from "../../assets/images/icons/back.svg";
 import logo from "../../assets/images/logo.png";
@@ -8,8 +7,6 @@ import "./styles.css";
 import { useNavigate } from "react-router-dom";
 
 export function ForgotPassword() {
-  const [email, setEmail] = useState("");
-
   const navigate = useNavigate();
 
   function goBack() {
