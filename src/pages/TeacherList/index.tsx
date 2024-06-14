@@ -10,8 +10,7 @@ import { api } from "../../services/api";
 import "./styles.css";
 
 export function TeacherList() {
-  const [teachers, setTeachers] = useState([]);
-
+  const [teachers, setTeachers] = useState<Teacher[]>([]);
   const [subject, setSubject] = useState("");
   const [week_day, setWeek_day] = useState("");
   const [time, setTime] = useState("");
@@ -28,7 +27,6 @@ export function TeacherList() {
     });
 
     setTeachers(response.data);
-    console.log(response.data);
   }
 
   return (
@@ -90,9 +88,13 @@ export function TeacherList() {
       </PageHeader>
 
       <main>
-        {teachers.map((teacher: Teacher) => {
-          return <TeacherItem key={teacher.id} teacher={teacher} />;
-        })}
+        {teachers.length > 0 ? (
+          teachers.map((teacher: Teacher) => (
+            <TeacherItem key={teacher.id} teacher={teacher} />
+          ))
+        ) : (
+          <p>Nenhum professor encontrado com os filtros aplicados.</p>
+        )}
       </main>
     </div>
   );
