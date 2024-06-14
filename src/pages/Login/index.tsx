@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 import background from "../../assets/images/Background.png";
 import logo from "../../assets/images/logo.png";
 import Input from "../../components/Input";
@@ -10,10 +8,6 @@ import "./styles.css";
 import { Link, useNavigate } from "react-router-dom";
 
 export function Login() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [remember, setRemember] = useState(false);
-
   const navigate = useNavigate();
 
   function handleNavigation() {
