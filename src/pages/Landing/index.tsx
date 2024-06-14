@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import logo from "../../assets/images/logo.png";
 import landing from "../../assets/images/landing.svg";
@@ -6,16 +6,25 @@ import studyIcon from "../../assets/images/icons/study.svg";
 import teachIcon from "../../assets/images/icons/give-classes.svg";
 import purpleHeart from "../../assets/images/icons/purple-heart.svg";
 import quitIcon from "../../assets/images/icons/Sair.png";
-import defaultAvatar from "../../assets/images/default-avatar.png";
 
 import "./styles.css";
 import { Link, useNavigate } from "react-router-dom";
+import { api } from "../../services/api";
 
 export function Landing() {
-  const [totalConnections, setTotalConnections] = useState(0);
-  const [isTeacher, setIsTeacher] = useState(false);
+  const [totalConnections, setTotalConnections] = useState<number>(0);
+  const [isTeacher, setIsTeacher] = useState<boolean>(false);
 
   const navigate = useNavigate();
+
+  useEffect(() => {
+    void api
+      .get<{ total: number }>("/connections")
+      .then((response) => setTotalConnections(response.data.total))
+      .catch((error) => {
+        console.error("Error fetching total connections:", error);
+      });
+  }, []);
 
   function handleNavigation() {
     navigate("/");
@@ -25,8 +34,7 @@ export function Landing() {
     <div id="page-landing">
       <div className="header">
         <div className="profile">
-          <img src="https://avatars.githubusercontent.com/u/112427489?v=4" />
-          <strong>Thauane Bispo</strong>
+          <strong>Bem vindo!</strong>
         </div>
         <button className="logoff-button" type="button">
           <img src={quitIcon} alt="Sair" onClick={handleNavigation} />
