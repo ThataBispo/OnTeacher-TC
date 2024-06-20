@@ -13,7 +13,6 @@ import { api } from "../../services/api";
 
 export function Landing() {
   const [totalConnections, setTotalConnections] = useState<number>(0);
-  const [isTeacher, setIsTeacher] = useState<boolean>(false);
 
   const navigate = useNavigate();
 
